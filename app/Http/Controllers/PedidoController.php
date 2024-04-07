@@ -6,6 +6,7 @@ use App\Models\Cliente;
 use App\Models\Pedido;
 use App\Models\PedidoStatus;
 use App\Http\Requests\PedidoRequest;
+use Illuminate\Support\Facades\Response;
 
 class PedidoController extends Controller
 {
@@ -121,5 +122,26 @@ class PedidoController extends Controller
     {
         $del = $this->objPedido->destroy($id);
         return($del)? 'pedidos' : "não";
+    }
+
+    public function export()
+    {
+        $pedidos = $this->objPedido->all();
+        $csvFileName = 'pedidos.csv';
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="' . $csvFileName . '"',
+        ];
+
+        $handle = fopen('php://output', 'w');
+        fputcsv($handle, ['id','produto','valor','data','cliente_id','pedidos_status_id','ativo','created_at','updated_at']);
+
+        foreach ($pedidos as $pedido) {
+            fputcsv($handle, [$pedido->id, $pedido->produto,$pedido->valor,$pedido->data,$pedido->cliente_id,$pedido->pedidos_status_id,$pedido->ativo,$pedido->created_at,$pedido->updated_at,]);
+        }
+
+        fclose($handle);
+
+        return Response::make('', 200, $headers);
     }
 }

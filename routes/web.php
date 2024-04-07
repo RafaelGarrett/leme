@@ -24,6 +24,7 @@ Route::put('/clientes/{cliente}', 'App\Http\Controllers\ClienteController@update
 Route::get('/clientes/{cliente}/edit', 'App\Http\Controllers\ClienteController@edit');
 Route::delete('/clientes/{cliente}', 'App\Http\Controllers\ClienteController@destroy');
 
+Route::get('/pedidos/export', 'App\Http\Controllers\PedidoController@export');
 Route::get('/pedidos', 'App\Http\Controllers\PedidoController@index');
 Route::get('/pedidos/create', 'App\Http\Controllers\PedidoController@create');
 Route::get('/pedidos/{pedido}', 'App\Http\Controllers\PedidoController@show');

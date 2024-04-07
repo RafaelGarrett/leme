@@ -4,6 +4,12 @@
     <h1 class="text-center">Pedidos</h1>
     <hr/>
     <div class="col-8 m-auto">
+        <div class="text-end">
+            <a href="{{url("pedidos/export")}}">
+                <button class="btn btn-success">Export CSV</button>
+            </a>
+        </div>
+        <br/>
         @csrf
         <table class="table table-striped">
             <thead>

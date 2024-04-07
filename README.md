@@ -62,3 +62,13 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## DER (Diagrama Entidade-Relacionamento)
+
+<p align="center">
+    <img src="der.png" alt="DER" width="auto">
+</p>
+
+## DataBase Export
+
+- [Archive](leme.sql).

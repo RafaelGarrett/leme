@@ -25,7 +25,7 @@
                 </div>
                 <div class="col">
                     <label for="data_nasc" class="form-label">Data de nascimento *</label>
-                    <input type="date" value="{{date('Y-m-d', strtotime($cliente->data_nasc))}}" class="form-control" name="data_nasc" id="data_nasc" min="1800-01-01" max="2024-12-31" required/>
+                    <input type="date" value="{{date('Y-m-d', strtotime($cliente->data_nasc))}}" class="form-control" name="data_nasc" id="data_nasc" min="1800-01-01" max="2024-04-07" required/>
                 </div>
             </div>
             <div class="mb-3">

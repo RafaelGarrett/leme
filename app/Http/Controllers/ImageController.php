@@ -45,7 +45,7 @@ class ImageController extends Controller
     {
 
         $pedido_id = $request->pedido_id;
-        $imageName = 'pedido'.'-'.$pedido_id.'-'.$request->image->extension();
+        $imageName = 'pedido'.'-'.$pedido_id.'.'.$request->image->extension();
 
         $request->image->move(public_path('assets/images/full'), $imageName);
         //$request->image->move(public_path('assets/image/thumbnail'), $imageName);

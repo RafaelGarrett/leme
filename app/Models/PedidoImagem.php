@@ -16,7 +16,14 @@ class PedidoImagem extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'imagem',
+        'pedido_id',
+        'imagen',
+        //'capa',
     ];
+
+    public function relPedido()
+    {
+        return $this->hasOne('App\Models\Pedido', 'id', 'pedido_id');
+    }
 
 }

@@ -34,4 +34,9 @@ class Pedido extends Model
         return $this->hasOne('App\Models\PedidoStatus', 'id', 'pedidos_status_id');
     }
 
+    public function relImages()
+    {
+        return $this->hasMany('App\Models\PedidoImagem', 'pedido_id', 'id');
+    }
+
 }

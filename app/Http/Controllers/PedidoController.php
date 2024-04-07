@@ -18,7 +18,7 @@ class PedidoController extends Controller
     {
         $this->objPedido = new Pedido();
         $this->objCliente = new Cliente();
-        $this->objStatus = new PedidoStatus();;
+        $this->objStatus = new PedidoStatus();
     }
 
     /**

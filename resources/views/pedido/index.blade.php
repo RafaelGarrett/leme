@@ -21,6 +21,7 @@
                     <th scope="col">Cliente</th>
                     <th scope="col">Status</th>
                     <th scope="col">Ativo</th>
+                    <th scope="col">Imagem</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
@@ -30,6 +31,7 @@
                         $cliente = $pedido->find($pedido->id)->relCliente;
                         $pedido_status = $pedido->find($pedido->id)->relStatus;
                         $valor = number_format($pedido->valor, 2);
+                        $images = $pedido->find($pedido->id)->relImages;
                     @endphp
                     <tr>
                         <th scope="row">{{$pedido->id}}</th>
@@ -40,6 +42,11 @@
                         <td>{{$pedido_status->descricao}}</td>
                         <td>@if ($pedido->ativo === 1) sim @else não @endif</td>
                         <td>
+                            @if (count($images) > 0)
+                                <img src="{{url('assets/images/full/'.$images[0]->imagen)}}" height="90px">
+                            @endif
+                        </td>
+                        <td>
                             <a href="{{url("pedidos/$pedido->id")}}">
                                 <button class="btn btn-dark">Visualizar</button>
                             </a>
@@ -48,6 +55,9 @@
                             </a>
                             <a href="{{url("pedidos/$pedido->id")}}" class="js-del">
                                 <button class="btn btn-danger">Deletar</button>
+                            </a>
+                            <a href="{{url("images/create/$pedido->id")}}">
+                                <button class="btn btn-success">Upload</button>
                             </a>
                         </td>
                     </tr>

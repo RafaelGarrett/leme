@@ -32,3 +32,6 @@ Route::post('/pedidos', 'App\Http\Controllers\PedidoController@store');
 Route::get('/pedidos/{pedido}/edit', 'App\Http\Controllers\PedidoController@edit');
 Route::put('/pedidos/{pedido}', 'App\Http\Controllers\PedidoController@update');
 Route::delete('/pedidos/{pedido}', 'App\Http\Controllers\PedidoController@destroy');
+
+Route::get('/images/create/{pedido}', 'App\Http\Controllers\ImageController@create');
+Route::post('/images', 'App\Http\Controllers\ImageController@store');

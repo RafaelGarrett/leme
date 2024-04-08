@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\PedidoImagem;
 use App\Http\Requests\ImageRequest;
+use Intervention\Image\ImageManager;
+
 
 class ImageController extends Controller
 {
@@ -45,15 +46,18 @@ class ImageController extends Controller
     {
 
         $pedido_id = $request->pedido_id;
-        $imageName = 'pedido'.'-'.$pedido_id.'.'.$request->image->extension();
+        $image_name = 'pedido'.'-'.$pedido_id.'.'.$request->image->extension();
+        $image_thumb_name = 'pedido'.'-'.$pedido_id.'-thumb'.'.'.$request->image->extension();
 
-        $request->image->move(public_path('assets/images/full'), $imageName);
-        //$request->image->move(public_path('assets/image/thumbnail'), $imageName);
+        $request->image->move(public_path('assets/images/full'), $image_name);
+        $manager = new ImageManager();
+        $image_thumb = $manager->make('assets/images/full/'.$image_name)->resize(90, 100);
+        $image_thumb->save(public_path('assets\images\thumbnail\\'.$image_thumb_name));
 
         $cad = $this->objImagem->create([
             'pedido_id'=>$request->pedido_id,
-            'imagen'=>$imageName,
-            //'capa'=>$request->data,
+            'imagen'=>$image_name,
+            'capa'=>$image_thumb_name,
         ]);
 
         if($cad){

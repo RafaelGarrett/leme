@@ -18,7 +18,7 @@ class PedidoImagem extends Model
     protected $fillable = [
         'pedido_id',
         'imagen',
-        //'capa',
+        'capa',
     ];
 
     public function relPedido()

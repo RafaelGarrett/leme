@@ -43,7 +43,7 @@
                         <td>@if ($pedido->ativo === 1) sim @else não @endif</td>
                         <td>
                             @if (count($images) > 0)
-                                <img src="{{url('assets/images/full/'.$images[0]->imagen)}}" height="90px">
+                                <img src="{{url('assets/images/thumbnail/'.$images[0]->capa)}}" height="90px">
                             @endif
                         </td>
                         <td>

@@ -108,7 +108,8 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $del = $this->objImagem->destroy($id);
+        return($del)? 'pedidos' : "não";
     }
 
 }

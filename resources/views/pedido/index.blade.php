@@ -41,9 +41,14 @@
                         <td>{{$cliente->nome}}</td>
                         <td>{{$pedido_status->descricao}}</td>
                         <td>@if ($pedido->ativo === 1) sim @else não @endif</td>
-                        <td>
+                        <td style="position: relative;">
                             @if (count($images) > 0)
-                                <img src="{{url('assets/images/thumbnail/'.$images[0]->capa)}}" height="90px">
+                                <a href="{{url('assets/images/full/'.$images[0]->imagen)}}" title="{{$images[0]->imagen}}">
+                                    <img src="{{url('assets/images/thumbnail/'.$images[0]->capa)}}" alt="{{$images[0]->capa}}"/>
+                                </a>
+                                <a href="{{url('images/'.$images[0]->id)}}" class="js-del">
+                                    <button class="btn btn-danger btn-sm" style="position: absolute; top: 5%; left: 5%;">X</button>
+                                </a>
                             @endif
                         </td>
                         <td>

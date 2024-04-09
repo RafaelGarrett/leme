@@ -33,5 +33,6 @@ Route::get('/pedidos/{pedido}/edit', 'App\Http\Controllers\PedidoController@edit
 Route::put('/pedidos/{pedido}', 'App\Http\Controllers\PedidoController@update');
 Route::delete('/pedidos/{pedido}', 'App\Http\Controllers\PedidoController@destroy');
 
-Route::get('/images/create/{pedido}', 'App\Http\Controllers\ImageController@create');
+Route::get('/images/create/{imagem}', 'App\Http\Controllers\ImageController@create');
 Route::post('/images', 'App\Http\Controllers\ImageController@store');
+Route::delete('/images/{imagem}', 'App\Http\Controllers\ImageController@destroy');
